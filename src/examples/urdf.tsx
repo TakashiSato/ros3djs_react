@@ -31,8 +31,8 @@ const URDF: FC = () => {
       ros: ros,
       tfClient: tfClient,
       param: "robot_description",
-      path: "/",
-    //   path : 'http://github.com/ros-industrial/universal_robot/blob/melodic-devel/',
+    //   path: "/",
+      path : 'https://raw.githubusercontent.com/ros-industrial/universal_robot/melodic-devel/',
       // path : 'http://resources.robotwebtools.org/',
       rootObject: viewer.scene,
       // loader : ROS3D.COLLADA_LOADER_2
