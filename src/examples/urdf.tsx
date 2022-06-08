@@ -55,16 +55,13 @@ const URDF: FC = () => {
       <p>Run the following commands in the terminal then refresh this page.</p>
       <ol>
         <li>
-          <code>roslaunch pr2_description upload_pr2.launch</code>
+          <code>roslaunch ur_description ur5_upload.launch</code>
         </li>
         <li>
           <code>rosrun robot_state_publisher robot_state_publisher</code>
         </li>
         <li>
-          <code>rosparam set use_gui true</code>
-        </li>
-        <li>
-          <code>rosrun joint_state_publisher joint_state_publisher</code>
+          <code>rosrun joint_state_publisher_gui joint_state_publisher_gui</code>
         </li>
         <li>
           <code>rosrun tf2_web_republisher tf2_web_republisher</code>
