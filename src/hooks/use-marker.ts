@@ -22,6 +22,7 @@ const useMarker = ({ url, width=400, height=300, param="robot_description", path
       elem: markersElement.current,
       width: width,
       height: height,
+      background: '#484848',
       antialias: true,
     });
 

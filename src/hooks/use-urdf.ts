@@ -20,7 +20,13 @@ const useURDF = ({ url, width=400, height=300, param="robot_description", path="
       elem: urdfElement.current,
       width: width,
       height: height,
+      background: '#484848',
       antialias: true,
+      alpha: 0.8,
+      intensity: 2.0,
+      cameraPose: { x: 1.2, y: 1.2, z: 0.5 },
+      displayPanAndZoomFrame: true,
+      cameraZoomSpeed: 3.0,
     });
 
     viewer.addObject(new ROS3D.Grid());
