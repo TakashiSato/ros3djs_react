@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
-import Home from './examples/home';
-import Markers from './examples/markers';
-import URDF from './examples/urdf';
+import Home from './components/pages/home';
+import Markers from './components/pages/markers';
+import URDF from 'components/pages/urdf';
 
 import './App.css';
 
