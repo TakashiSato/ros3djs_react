@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
-import { Viewer, Grid, UrdfClient } from "ros3d";
+import { FC, useEffect, useRef } from "react";
 import { Ros, TFClient } from "roslib";
 
-const URDF = () => {
-  const urdfElement = useRef(null);
+const URDF: FC = () => {
+  const ROS3D = require("ros3d");
+  const urdfElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ros = new Ros({
@@ -11,14 +11,14 @@ const URDF = () => {
     });
 
     console.log("INIT VIEWER");
-    let viewer = new Viewer({
+    let viewer = new ROS3D.Viewer({
       elem: urdfElement.current,
       width: 400,
       height: 300,
       antialias: true,
     });
 
-    viewer.addObject(new Grid());
+    viewer.addObject(new ROS3D.Grid());
 
     const tfClient = new TFClient({
       ros: ros,
@@ -27,7 +27,7 @@ const URDF = () => {
       rate: 10.0,
     });
 
-    const urdfClient = new UrdfClient({
+    const urdfClient = new ROS3D.UrdfClient({
       ros: ros,
       tfClient: tfClient,
       param: "robot_description",
@@ -55,22 +55,22 @@ const URDF = () => {
       <p>Run the following commands in the terminal then refresh this page.</p>
       <ol>
         <li>
-          <tt>roslaunch pr2_description upload_pr2.launch</tt>
+          <code>roslaunch pr2_description upload_pr2.launch</code>
         </li>
         <li>
-          <tt>rosrun robot_state_publisher robot_state_publisher</tt>
+          <code>rosrun robot_state_publisher robot_state_publisher</code>
         </li>
         <li>
-          <tt>rosparam set use_gui true</tt>
+          <code>rosparam set use_gui true</code>
         </li>
         <li>
-          <tt>rosrun joint_state_publisher joint_state_publisher</tt>
+          <code>rosrun joint_state_publisher joint_state_publisher</code>
         </li>
         <li>
-          <tt>rosrun tf2_web_republisher tf2_web_republisher</tt>
+          <code>rosrun tf2_web_republisher tf2_web_republisher</code>
         </li>
         <li>
-          <tt>roslaunch rosbridge_server rosbridge_websocket.launch</tt>
+          <code>roslaunch rosbridge_server rosbridge_websocket.launch</code>
         </li>
       </ol>
       <div ref={urdfElement}></div>

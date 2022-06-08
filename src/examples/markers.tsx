@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
-import { Viewer, MarkerClient } from "ros3d";
+import { FC, useEffect, useRef } from "react";
 import { Ros, TFClient } from "roslib";
 
 import "./markers.css";
 
-const Markers = () => {
-  const markersElement = useRef(null);
+const Markers: FC  = () => {
+  const ROS3D = require("ros3d");
+  const markersElement = useRef<HTMLDivElement>(null);
 
   /**
    * Setup all visualization elements when the page is loaded.
@@ -18,7 +18,7 @@ const Markers = () => {
     });
 
     // Create the main viewer.
-    const viewer = new Viewer({
+    const viewer = new ROS3D.Viewer({
       elem: markersElement.current,
       width: 400,
       height: 300,
@@ -35,7 +35,7 @@ const Markers = () => {
     });
 
     // Setup the marker client.
-    const markerClient = new MarkerClient({
+    const markerClient = new ROS3D.MarkerClient({
       ros: ros,
       tfClient: tfClient,
       topic: "/visualization_marker",
