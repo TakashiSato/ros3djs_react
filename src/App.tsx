@@ -1,30 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { FC } from 'react';
+import { Routes, Route } from 'react-router-dom'
 
-import './App.css';
+import Home from './examples/home';
 import Markers from './examples/markers';
 import URDF from './examples/urdf';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <p>This is an app meant to demonstrate how to use the ros3djs module in a Single Page Application</p>
-        <p>Examples:</p>
-        <ul>
-          <li><Link to="/examples/markers">Markers</Link></li>
-          <li><Link to="/examples/urdf">URDF</Link></li>
-        </ul>
+import './App.css';
 
-        <div>
-            <Routes>
-              <Route path="/examples/markers" element={<Markers/>} />
-              <Route path="/examples/urdf" element={<URDF/>} />
-            </Routes>
-        </div>
-      </div>
-    </Router>
-  );
-}
+const App: FC = () => (
+  <div className="App">
+    <Home/>
+    <Routes>
+      <Route path="/examples/markers" element={<Markers/>} />
+      <Route path="/examples/urdf" element={<URDF/>} />
+    </Routes>
+  </div>
+);
 
 export default App;
